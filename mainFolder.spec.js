@@ -77,12 +77,15 @@ test('Automating Urban Ladder Website', async ({ page }) => {
   const listOfProducts = await productNames.allTextContents();
   console.log('List of Products:', listOfProducts);
   const productInfo = page.locator('.product-info-block');
-  const productName = 'Hayden Engineered Wood Bookshelf in Classic Walnut Finish'
+  const productName = 'Albert Engineered Wood Bookshelf in Wenge Finish'
   for (let i = 0; i < await productInfo.locator('.name').count(); i++) {
     const productText = await productInfo.locator('.name').nth(i).textContent(); // Get the text content of the element
+    console.log(`Processing product ${i}:`, productText); // Debugging log
     if (productText.includes(productName)) { // Check if the text contains the desired string
+      console.log(`Found matching product at index ${i}:`, productText); // Debugging log
       await productInfo.locator('.name').nth(i).hover(); // Hover over the product
       await productInfo.locator('a.button:nth-child(2)').nth(i).click(); // Click the button
+      break; // Exit the loop after clicking the correct element
     }
   }
   await expect(page.getByText(productName).first()).toHaveText(productName);
@@ -93,17 +96,17 @@ test('Automating Urban Ladder Website', async ({ page }) => {
   await checkOutButton.click();
   const emailInput = page.getByPlaceholder('Enter Email');
   await emailInput.fill('myProject@gmail.com');
-  const pincodeInput = page.getByPlaceholder('PIN Code');
+  const pincodeInput = page.locator('#order_ship_address_attributes_zipcode')
   await pincodeInput.fill('560057');
-  const adressInput = page.getByPlaceholder('Address');
+  const adressInput = page.locator("textarea[placeholder='Address']").first();
   await adressInput.fill('Thoraipakkam, Tamil Nadu, India');
-  const nameInput = page.getByPlaceholder('First Name');
+  const nameInput = page.getByPlaceholder('First Name').first();
   await nameInput.fill('Bhai');
-  const lastNameInput = page.getByPlaceholder('Last Name');
+  const lastNameInput = page.getByPlaceholder('Last Name').first();
   await lastNameInput.fill('Rocky');
-  const phoneInput = page.getByPlaceholder('Enter 10 digit mobile number');
+  const phoneInput = page.getByPlaceholder('Enter 10 digit mobile number').first();
   await phoneInput.fill('9876543210');
-  const continueButton = page.getByRole('button', { name: 'Save and Continue' });
+  const continueButton = page.getByRole('button', { name: 'Save and Continue' }).first();
   await continueButton.click();
 
 
