@@ -1,0 +1,11 @@
+[
+    {
+        "furnitureType": "Bookshelves",
+        "targetPrice": 15000,
+        "storageTypeFilter": "Open",
+        "mountTypeFilter": "Free Standing",
+        "noOfShelves": "6",
+        "recommendedPriceFilter": "Low to High",
+        "productName": "Albert Engineered Wood Bookshelf in Wenge Finish"
+    }
+]
