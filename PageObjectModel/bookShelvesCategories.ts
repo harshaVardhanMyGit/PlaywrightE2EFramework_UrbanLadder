@@ -1,7 +1,23 @@
-const { expect } = require('@playwright/test');
+import { expect, Page, Locator } from '@playwright/test';
 
-class bookShelvesCategories {
-    constructor(page) {
+export class bookShelvesCategories {
+    readonly page: Page;
+    readonly popupLocator: Locator;
+    readonly filters: Locator;
+    readonly priceFilter: Locator;
+    readonly upperHandle: Locator;
+    readonly sliderLocator: Locator;
+    readonly priceRangeText: any;
+    readonly selectedFilters: Locator;
+    readonly storageTypeFilter: Locator;
+    readonly mountTypeFilter: Locator;
+    readonly excludeOutOfStock: Locator;
+    readonly recommendedPriceFilter: Locator;
+    readonly productNames: Locator;
+    readonly productInfo: Locator;
+    readonly minPrice: number;
+    readonly maxPrice: number;
+    constructor(page: Page) {
         this.page = page;
         this.popupLocator = page.locator('.popup-text a.close-reveal-modal:has-text(" Close")');
         this.filters = page.locator('li div.gname');
@@ -20,7 +36,7 @@ class bookShelvesCategories {
         this.maxPrice = 53125;
     }
 
-    async closePopupIfVisibleAndCheckTheText(furnitureType) {
+    async closePopupIfVisibleAndCheckTheText(furnitureType: string) {
         await this.popupLocator.waitFor({ state: 'visible', timeout: 20000 });
         if (await this.popupLocator.isVisible()) {
             await this.popupLocator.click();
@@ -28,33 +44,33 @@ class bookShelvesCategories {
         await expect(this.page.locator(`[data-taxon-name='${furnitureType}']`)).toHaveText(` ${furnitureType} `);
     }
 
-    async assignFiltersToTheFurniture(targetPrice, storageTypeFilterText, mountTypeFilter, noOfShelves, RecommendedP) {
+    async assignFiltersToTheFurniture(targetPrice: number, storageTypeFilterText: string, mountTypeFilter: string, noOfShelves: number, RecommendedP: string) {
         await this.page.waitForTimeout(1000);
         await this.priceFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Price")')).toBeVisible();
         await this.dragTheBarCalculation(targetPrice);
         await this.storageTypeFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Storage Type")')).toBeVisible();
-        const labelInStorageType = this.page.locator(`label:has-text("${storageTypeFilterText} ")`).first();
-        const labelInStorageTypeText = await labelInStorageType.textContent();
+        const labelInStorageType: Locator = this.page.locator(`label:has-text("${storageTypeFilterText} ")`).first();
+        const labelInStorageTypeText: any = await labelInStorageType.textContent();
         await labelInStorageType.check();
         expect(await labelInStorageType.isChecked()).toBeTruthy();
         await expect(this.selectedFilters.nth(1)).toHaveText(labelInStorageTypeText);
         console.log('Selected Storage Type:', labelInStorageTypeText);
         await this.mountTypeFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Mount Type")')).toBeVisible();
-        const labelInMountType = this.page.locator(`label:has-text("${mountTypeFilter} ")`);
-        const labelInMountTypeText = await labelInMountType.textContent();
+        const labelInMountType: Locator = this.page.locator(`label:has-text("${mountTypeFilter} ")`);
+        const labelInMountTypeText: any = await labelInMountType.textContent();
         await labelInMountType.check();
         expect(await labelInMountType.isChecked()).toBeTruthy();
         await expect(this.selectedFilters.nth(2)).toHaveText(labelInMountTypeText);
         console.log('Selected Inmount Type:', labelInMountTypeText);
-        const noOfShelvesFilter = this.filters.filter({ hasText: ' No of Shelves ' });
+        const noOfShelvesFilter: Locator = this.filters.filter({ hasText: ' No of Shelves ' });
         await noOfShelvesFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("No. of Shelves")')).toBeVisible();
-        const labelInNoOfShelves = this.page.locator("ul[data-filter-name*='num_shelves'] li label",
+        const labelInNoOfShelves: Locator = this.page.locator("ul[data-filter-name*='num_shelves'] li label",
             { hasText: `${noOfShelves} ` });
-        const labelInNoOfShelvesText = await labelInNoOfShelves.textContent();
+        const labelInNoOfShelvesText: any = await labelInNoOfShelves.textContent();
         await labelInNoOfShelves.check();
         expect(await labelInNoOfShelves.isChecked()).toBeTruthy();
         await expect(this.selectedFilters.nth(3)).toHaveText(labelInNoOfShelvesText);
@@ -62,16 +78,16 @@ class bookShelvesCategories {
         await this.excludeOutOfStock.click();
         expect(await this.excludeOutOfStock.isChecked()).toBeTruthy();
         await this.recommendedPriceFilter.hover();
-        const recommendedPriceFilterText = await this.recommendedPriceFilter.textContent();
+        const recommendedPriceFilterText: any = await this.recommendedPriceFilter.textContent();
         await expect(this.page.locator('div ul li.selected')).toHaveText(recommendedPriceFilterText);
         await this.page.locator(`text =Price: ${RecommendedP}`).click();
     }
 
-    async dragTheBarCalculation(targetPriceValue) {
+    async dragTheBarCalculation(targetPriceValue: number) {
         await this.sliderLocator.waitFor({ state: 'visible' });
-        const slider = await this.sliderLocator.boundingBox();
-        const proportion = (targetPriceValue - this.minPrice) / (this.maxPrice - this.minPrice);
-        const targetX = slider.x + slider.width * proportion;
+        const slider: any = await this.sliderLocator.boundingBox();
+        const proportion: number = (targetPriceValue - this.minPrice) / (this.maxPrice - this.minPrice);
+        const targetX:any = slider.x + slider.width * proportion;
         await this.upperHandle.hover();
         await this.page.mouse.down();
         await this.page.mouse.move(targetX, slider.y + slider.height / 2);
@@ -79,11 +95,11 @@ class bookShelvesCategories {
         console.log('Updated Price Range:', await this.priceRangeText);
     }
 
-    async viewProduct(productName) {
-        const listOfProducts = await this.productNames.allTextContents();
+    async viewProduct(productName: string) {
+        const listOfProducts: any = await this.productNames.allTextContents();
         console.log('List of Products:', listOfProducts);
         for (let i = 0; i < await this.productInfo.locator('.name').count(); i++) {
-            const productText = await this.productInfo.locator('.name').nth(i).textContent(); // Get the text content of the element
+            const productText: any = await this.productInfo.locator('.name').nth(i).textContent(); // Get the text content of the element
             console.log(`Processing product ${i}:`, productText); // Debugging log
             if (productText.includes(productName)) { // Check if the text contains the desired string
                 console.log(`Found matching product at index ${i}:`, productText); // Debugging log

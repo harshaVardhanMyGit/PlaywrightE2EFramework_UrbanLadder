@@ -1,7 +1,8 @@
-const { expect } = require('@playwright/test');
+import { Page, expect, Locator } from '@playwright/test';
 
-class homePage {
-    constructor(page) {
+export class homePage {
+    page: Page;
+    constructor(page: Page) {
         this.page = page;
     }
 
@@ -9,12 +10,12 @@ class homePage {
         await this.page.goto('https://www.urbanladder.com/', { waitUntil: "domcontentloaded" });
     }
 
-    async clickOnFurniture(typeOfFurniture) {
-        this.bookshelvesLocator = this.page.locator(`a h4:has-text("${typeOfFurniture}")`);
-        await this.bookshelvesLocator.scrollIntoViewIfNeeded();
-        expect(await this.bookshelvesLocator.isVisible()).toBeTruthy();
-        await this.bookshelvesLocator.click();
-    }  
+    async clickOnFurniture(typeOfFurniture: string) {
+        const bookshelvesLocator: Locator = this.page.locator(`a h4:has-text("${typeOfFurniture}")`);
+        await bookshelvesLocator.scrollIntoViewIfNeeded();
+        expect(await bookshelvesLocator.isVisible()).toBeTruthy();
+        await bookshelvesLocator.click();
+    }
 
 }
 
