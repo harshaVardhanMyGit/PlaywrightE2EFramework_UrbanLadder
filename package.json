@@ -2,15 +2,22 @@
   "name": "urban-ladder-playwright-project",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "description": "Playwright E2E framework for Urban Ladder",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "allure:generate": "npx allure-playwright generate",
+    "allure:open": "npx allure-playwright open"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@playwright/test": "^1.53.2",
-    "@types/node": "^24.0.7",
+    "@types/node": "^24.0.10",
     "allure-playwright": "^3.3.0",
-    "playwright": "^1.53.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
