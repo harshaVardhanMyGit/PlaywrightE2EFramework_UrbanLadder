@@ -7,15 +7,17 @@
     "test": "npx playwright test",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
-    "allure:generate": "npx allure-playwright generate",
-    "allure:open": "npx allure-playwright open"
+    "allure:generate": "allure generate ./allure-results --clean",
+    "allure:open": "allure open ./allure-results"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@azure/microsoft-playwright-testing": "^1.0.0-beta.7",
     "@playwright/test": "^1.53.2",
     "@types/node": "^24.0.10",
+    "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"

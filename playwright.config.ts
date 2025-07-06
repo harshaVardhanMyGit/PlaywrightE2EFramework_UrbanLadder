@@ -27,5 +27,5 @@ const config = defineConfig({
   },
 });
 
-module.exports = config;
+export default config;
 
