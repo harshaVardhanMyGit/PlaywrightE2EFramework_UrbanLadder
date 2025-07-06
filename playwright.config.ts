@@ -11,19 +11,21 @@ const config = defineConfig({
   expect: {
     timeout: 5000,
   }, //for all expect statements
-  reporter: [['html', { open: 'always' }], ['list'], ['json', { outputFile: 'test-results.json' }]],
+  reporter: [
+    ['html', { open: 'always' }], // HTML report
+    ['list'], // Console list report
+    ['json', { outputFile: 'test-results.json' }], // JSON report
+    ['allure-playwright'], // Allure report
+  ],
   use: {
     browserName: "chromium",
     headless: false,
     screenshot: 'on',
     video: 'retain-on-failure',
-    ignoreHTTPSErrors: true,  //your connection is private type errors - playwright ignore i guess
-    //without blocked by ssl warnings
-    permissions: ['geolocation'], //to allow location
-    //viewport: { width: 720, height: 720 }
+    ignoreHTTPSErrors: true, // Ignore SSL certificate errors
+    permissions: ['geolocation'], // Allow geolocation
   },
-
 });
 
-module.exports = config
+module.exports = config;
 
