@@ -65,6 +65,33 @@ Welcome to the Urban Ladder Playwright Automation Project! This repository is de
 4. **View reports:**  
    After running tests, open the generated HTML report to analyze results.
 
+5. **Run Cucumber (BDD) tests:**  
+   ```bash
+   npm run test:cucumber
+   ```
+
+## Azure Playwright Testing Service Setup
+
+1. **Install the Playwright Testing service package:**
+   ```bash
+   npm init @azure/microsoft-playwright-testing
+   ```
+
+2. **Set up authentication::**
+   ```bash
+   az login
+   ```
+
+3. **Add region endpoint in your setup (set command for windows):**
+   ```bash
+   set PLAYWRIGHT_SERVICE_URL='Your Service URL'
+   ```
+
+4. **Run high-scale parallel tests and get rich reports:**  
+   ```bash
+   npx playwright test --config=playwright.service.config.ts --workers=20
+   ```
+
 ## License
 
 MIT License. Free to use, modify, and share.
