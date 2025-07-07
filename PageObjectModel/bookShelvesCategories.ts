@@ -49,6 +49,7 @@ export class bookShelvesCategories {
         await this.priceFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Price")')).toBeVisible();
         await this.dragTheBarCalculation(targetPrice);
+        await this.page.waitForTimeout(1000);
         await this.storageTypeFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Storage Type")')).toBeVisible();
         const labelInStorageType: Locator = this.page.locator(`label:has-text("${storageTypeFilterText} ")`).first();
@@ -57,6 +58,7 @@ export class bookShelvesCategories {
         expect(await labelInStorageType.isChecked()).toBeTruthy();
         await expect(this.selectedFilters.nth(1)).toHaveText(labelInStorageTypeText);
         console.log('Selected Storage Type:', labelInStorageTypeText);
+        await this.page.waitForTimeout(1000);
         await this.mountTypeFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Mount Type")')).toBeVisible();
         const labelInMountType: Locator = this.page.locator(`label:has-text("${mountTypeFilter} ")`);
@@ -66,6 +68,7 @@ export class bookShelvesCategories {
         await expect(this.selectedFilters.nth(2)).toHaveText(labelInMountTypeText);
         console.log('Selected Inmount Type:', labelInMountTypeText);
         const noOfShelvesFilter: Locator = this.filters.filter({ hasText: ' No of Shelves ' });
+        await this.page.waitForTimeout(1000);
         await noOfShelvesFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("No. of Shelves")')).toBeVisible();
         const labelInNoOfShelves: Locator = this.page.locator("ul[data-filter-name*='num_shelves'] li label",
@@ -77,6 +80,7 @@ export class bookShelvesCategories {
         console.log('No of Shelves:', labelInNoOfShelvesText);
         await this.excludeOutOfStock.click();
         expect(await this.excludeOutOfStock.isChecked()).toBeTruthy();
+        await this.page.waitForTimeout(1000);
         await this.recommendedPriceFilter.hover();
         const recommendedPriceFilterText: any = await this.recommendedPriceFilter.textContent();
         await expect(this.page.locator('div ul li.selected')).toHaveText(recommendedPriceFilterText);
