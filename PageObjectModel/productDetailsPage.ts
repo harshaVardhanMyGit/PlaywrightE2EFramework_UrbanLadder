@@ -21,5 +21,3 @@ export class productDetailsPage {
     }
 
 }
-
-module.exports = { productDetailsPage };

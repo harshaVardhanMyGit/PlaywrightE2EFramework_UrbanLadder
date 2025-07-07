@@ -32,4 +32,3 @@ export class addressPage {
 
 }
 
-module.exports = { addressPage };
