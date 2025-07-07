@@ -7,7 +7,7 @@ export class bookShelvesCategories {
     readonly priceFilter: Locator;
     readonly upperHandle: Locator;
     readonly sliderLocator: Locator;
-    readonly priceRangeText: any;
+    readonly priceRangeText: Locator;
     readonly selectedFilters: Locator;
     readonly storageTypeFilter: Locator;
     readonly mountTypeFilter: Locator;
@@ -24,7 +24,7 @@ export class bookShelvesCategories {
         this.priceFilter = page.locator('li div.gname').filter({ hasText: ' Price ' });
         this.upperHandle = page.locator('div.noUi-handle-upper').nth(0);
         this.sliderLocator = page.locator('.connect');
-        this.priceRangeText = page.locator('.selrange-filter').textContent();
+        this.priceRangeText = page.locator('.selrange-filter');
         this.selectedFilters = page.locator('.list li');
         this.storageTypeFilter = this.filters.filter({ hasText: ' Storage Type ' });
         this.mountTypeFilter = this.filters.filter({ hasText: ' Mount Type ' });
@@ -49,6 +49,7 @@ export class bookShelvesCategories {
         await this.priceFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Price")')).toBeVisible();
         await this.dragTheBarCalculation(targetPrice);
+        await this.page.waitForTimeout(1000);
         await this.storageTypeFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Storage Type")')).toBeVisible();
         const labelInStorageType: Locator = this.page.locator(`label:has-text("${storageTypeFilterText} ")`).first();
@@ -57,6 +58,7 @@ export class bookShelvesCategories {
         expect(await labelInStorageType.isChecked()).toBeTruthy();
         await expect(this.selectedFilters.nth(1)).toHaveText(labelInStorageTypeText);
         console.log('Selected Storage Type:', labelInStorageTypeText);
+        await this.page.waitForTimeout(1000);
         await this.mountTypeFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("Mount Type")')).toBeVisible();
         const labelInMountType: Locator = this.page.locator(`label:has-text("${mountTypeFilter} ")`);
@@ -66,6 +68,7 @@ export class bookShelvesCategories {
         await expect(this.selectedFilters.nth(2)).toHaveText(labelInMountTypeText);
         console.log('Selected Inmount Type:', labelInMountTypeText);
         const noOfShelvesFilter: Locator = this.filters.filter({ hasText: ' No of Shelves ' });
+        await this.page.waitForTimeout(1000);
         await noOfShelvesFilter.hover();
         await expect(this.page.locator('.filter-name:has-text("No. of Shelves")')).toBeVisible();
         const labelInNoOfShelves: Locator = this.page.locator("ul[data-filter-name*='num_shelves'] li label",
@@ -77,6 +80,7 @@ export class bookShelvesCategories {
         console.log('No of Shelves:', labelInNoOfShelvesText);
         await this.excludeOutOfStock.click();
         expect(await this.excludeOutOfStock.isChecked()).toBeTruthy();
+        await this.page.waitForTimeout(1000);
         await this.recommendedPriceFilter.hover();
         const recommendedPriceFilterText: any = await this.recommendedPriceFilter.textContent();
         await expect(this.page.locator('div ul li.selected')).toHaveText(recommendedPriceFilterText);
@@ -92,7 +96,7 @@ export class bookShelvesCategories {
         await this.page.mouse.down();
         await this.page.mouse.move(targetX, slider.y + slider.height / 2);
         await this.page.mouse.up();
-        console.log('Updated Price Range:', await this.priceRangeText);
+        console.log('Updated Price Range:', await this.priceRangeText.textContent());
     }
 
     async viewProduct(productName: string) {
@@ -112,4 +116,3 @@ export class bookShelvesCategories {
     }
 }
 
-module.exports = { bookShelvesCategories };

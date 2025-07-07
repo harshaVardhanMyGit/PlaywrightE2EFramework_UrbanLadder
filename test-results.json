@@ -88,26 +88,23 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 22082,
+                  "status": "timedOut",
+                  "duration": 43153,
                   "error": {
-                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('.filter-name:has-text(\"No. of Shelves\")')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.filter-name:has-text(\"No. of Shelves\")')\u001b[22m\n\u001b[2m    8 × locator resolved to <span class=\"filter-name\">No. of Shelves</span>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n",
-                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('.filter-name:has-text(\"No. of Shelves\")')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.filter-name:has-text(\"No. of Shelves\")')\u001b[22m\n\u001b[2m    8 × locator resolved to <span class=\"filter-name\">No. of Shelves</span>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n    at bookShelvesCategories.assignFiltersToTheFurniture (C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts:70:84)\n    at C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\tests\\mainFolder.spec.ts:36:5",
-                    "location": {
-                      "file": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts",
-                      "column": 84,
-                      "line": 70
-                    },
-                    "snippet": "\u001b[90m   at \u001b[39m..\\PageObjectModel\\bookShelvesCategories.ts:70\n\n\u001b[0m \u001b[90m 68 |\u001b[39m         \u001b[36mconst\u001b[39m noOfShelvesFilter\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfilters\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m' No of Shelves '\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 69 |\u001b[39m         \u001b[36mawait\u001b[39m noOfShelvesFilter\u001b[33m.\u001b[39mhover()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 70 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'.filter-name:has-text(\"No. of Shelves\")'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 71 |\u001b[39m         \u001b[36mconst\u001b[39m labelInNoOfShelves\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m\"ul[data-filter-name*='num_shelves'] li label\"\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 72 |\u001b[39m             { hasText\u001b[33m:\u001b[39m \u001b[32m`${noOfShelves} `\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 73 |\u001b[39m         \u001b[36mconst\u001b[39m labelInNoOfShelvesText\u001b[33m:\u001b[39m any \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m labelInNoOfShelves\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\u001b[0m"
+                    "message": "\u001b[31mTest timeout of 40000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 40000ms exceeded.\u001b[39m"
                   },
                   "errors": [
                     {
+                      "message": "\u001b[31mTest timeout of 40000ms exceeded.\u001b[39m"
+                    },
+                    {
                       "location": {
                         "file": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts",
-                        "column": 84,
-                        "line": 70
+                        "column": 32,
+                        "line": 64
                       },
-                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('.filter-name:has-text(\"No. of Shelves\")')\nExpected: visible\nReceived: hidden\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.filter-name:has-text(\"No. of Shelves\")')\u001b[22m\n\u001b[2m    8 × locator resolved to <span class=\"filter-name\">No. of Shelves</span>\u001b[22m\n\u001b[2m      - unexpected value \"hidden\"\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\PageObjectModel\\bookShelvesCategories.ts:70\n\n\u001b[0m \u001b[90m 68 |\u001b[39m         \u001b[36mconst\u001b[39m noOfShelvesFilter\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfilters\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m' No of Shelves '\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 69 |\u001b[39m         \u001b[36mawait\u001b[39m noOfShelvesFilter\u001b[33m.\u001b[39mhover()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 70 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m'.filter-name:has-text(\"No. of Shelves\")'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 71 |\u001b[39m         \u001b[36mconst\u001b[39m labelInNoOfShelves\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m\"ul[data-filter-name*='num_shelves'] li label\"\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 72 |\u001b[39m             { hasText\u001b[33m:\u001b[39m \u001b[32m`${noOfShelves} `\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 73 |\u001b[39m         \u001b[36mconst\u001b[39m labelInNoOfShelvesText\u001b[33m:\u001b[39m any \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m labelInNoOfShelves\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at bookShelvesCategories.assignFiltersToTheFurniture (C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts:70:84)\u001b[22m\n\u001b[2m    at C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\tests\\mainFolder.spec.ts:36:5\u001b[22m"
+                      "message": "Error: locator.check: Test timeout of 40000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label:has-text(\"Free Standing \")')\u001b[22m\n\u001b[2m    - locator resolved to <label class=\"name \" for=\"filters_mount_type_Free_Standing\">Free Standing↵</label>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    52 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\PageObjectModel\\bookShelvesCategories.ts:64\n\n\u001b[0m \u001b[90m 62 |\u001b[39m         \u001b[36mconst\u001b[39m labelInMountType\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m`label:has-text(\"${mountTypeFilter} \")`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m         \u001b[36mconst\u001b[39m labelInMountTypeText\u001b[33m:\u001b[39m any \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m labelInMountType\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 64 |\u001b[39m         \u001b[36mawait\u001b[39m labelInMountType\u001b[33m.\u001b[39mcheck()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 65 |\u001b[39m         expect(\u001b[36mawait\u001b[39m labelInMountType\u001b[33m.\u001b[39misChecked())\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\n \u001b[90m 66 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mselectedFilters\u001b[33m.\u001b[39mnth(\u001b[35m2\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(labelInMountTypeText)\u001b[33m;\u001b[39m\n \u001b[90m 67 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m'Selected Inmount Type:'\u001b[39m\u001b[33m,\u001b[39m labelInMountTypeText)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at bookShelvesCategories.assignFiltersToTheFurniture (C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts:64:32)\u001b[22m\n\u001b[2m    at C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\tests\\mainFolder.spec.ts:35:5\u001b[22m"
                     }
                   ],
                   "stdout": [
@@ -116,14 +113,11 @@
                     },
                     {
                       "text": "Selected Storage Type: Open\n\n"
-                    },
-                    {
-                      "text": "Selected Inmount Type: Free Standing\n\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-07-06T05:29:48.211Z",
+                  "startTime": "2025-07-07T05:28:16.012Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -141,12 +135,7 @@
                       "contentType": "text/markdown",
                       "path": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\test-results\\mainFolder-Automating-Urban-Ladder-Website\\error-context.md"
                     }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts",
-                    "column": 84,
-                    "line": 70
-                  }
+                  ]
                 }
               ],
               "status": "unexpected"
@@ -154,7 +143,7 @@
           ],
           "id": "1fb5e57df45c7a4466cd-9d558d34f4dc8137197c",
           "file": "mainFolder.spec.ts",
-          "line": 27,
+          "line": 24,
           "column": 7
         }
       ]
@@ -162,8 +151,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-07-06T05:29:45.135Z",
-    "duration": 29080.755,
+    "startTime": "2025-07-07T05:28:13.802Z",
+    "duration": 47560.829000000005,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

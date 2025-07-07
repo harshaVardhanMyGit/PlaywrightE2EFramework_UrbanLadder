@@ -8,13 +8,15 @@
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
     "allure:generate": "allure generate ./allure-results --clean",
-    "allure:open": "allure open ./allure-results"
+    "allure:open": "allure open ./allure-results",
+    "test:cucumber": "cucumber-js --require-module ts-node/register --require features/stepDefinitions/step.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@azure/microsoft-playwright-testing": "^1.0.0-beta.7",
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.53.2",
     "@types/node": "^24.0.10",
     "allure-commandline": "^2.34.1",

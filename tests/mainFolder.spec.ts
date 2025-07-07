@@ -1,9 +1,6 @@
 import { test } from '@playwright/test';
-import { bookShelvesCategories } from '../PageObjectModel/bookShelvesCategories';
-import { productDetailsPage } from '../PageObjectModel/productDetailsPage';
-import { homePage } from '../PageObjectModel/homePage';
-import { addressPage } from '../PageObjectModel/addressPage';
-import dataset from './utils/furnitureData.json' assert { type: 'json' };
+import dataset from './utils/furnitureData.json';
+import { POManager } from '../PageObjectModel/POManager';
 
 interface FurnitureData {
   furnitureType: string;
@@ -25,10 +22,12 @@ const furnitureData: FurnitureData[] = dataset;
 
 for (const datasets of furnitureData) {
   test('Automating Urban Ladder Website', async ({ page }) => {
-    const bookShelves = new bookShelvesCategories(page);
-    const productDetails = new productDetailsPage(page);
-    const address = new addressPage(page);
-    const home = new homePage(page);
+    
+    const pomManager = new POManager(page);
+    const bookShelves = await pomManager.getBookShelvesPage();
+    const productDetails = await pomManager.getProductDetailsPage();
+    const address = await pomManager.getAddressPage();
+    const home = await pomManager.getHomePage();
 
     await home.navigateToHomePage();
     await home.clickOnFurniture(datasets.furnitureType);
