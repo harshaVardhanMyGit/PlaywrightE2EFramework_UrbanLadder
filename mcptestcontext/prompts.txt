@@ -1,0 +1,16 @@
+scenario 1 - prompt
+Description: prompt to open the website search for the text and click on
+furniture button.  
+
+Prompt Starts From Here:
+1.Navigate to this URL 'https://www.urbanladder.com/'.
+2.Scroll the page 'Explore Our Furniture Range' text visibility.
+3.Click on first 'Bookshelves' button that is visible present in the page.
+4.Close the test after these steps execution.
+
+Note: 
+1.Add these tests into 'urbanLadderExploreMCP.spec.ts' file
+2.If there is already existing test in the 'urbanLadderExploreMCP.spec.ts' file
+create one more test within same file dont override the existing one
+3.Run the latest test
+
