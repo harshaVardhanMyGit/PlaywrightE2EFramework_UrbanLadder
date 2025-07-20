@@ -103,8 +103,10 @@ export class bookShelvesCategories {
         const listOfProducts: any = await this.productNames.allTextContents();
         console.log('List of Products:', listOfProducts);
         for (let i = 0; i < await this.productInfo.locator('.name').count(); i++) {
+            const productNameLocator: Locator = this.productInfo.locator('.name').nth(i);
+            await productNameLocator.scrollIntoViewIfNeeded();
             const productText: any = await this.productInfo.locator('.name').nth(i).textContent(); // Get the text content of the element
-            console.log(`Processing product ${i}:`, productText); // Debugging log
+            // console.log(`Processing product ${i}:`, productText); // Debugging log
             if (productText.includes(productName)) { // Check if the text contains the desired string
                 console.log(`Found matching product at index ${i}:`, productText); // Debugging log
                 await this.productInfo.locator('.name').nth(i).hover(); // Hover over the product
