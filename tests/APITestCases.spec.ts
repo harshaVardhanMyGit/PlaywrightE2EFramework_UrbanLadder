@@ -7,7 +7,7 @@ interface FurnitureUIData {
     furnitureType: string;
     targetPrice: number;
     storageTypeFilter: string;
-    lowestPrice: number; 
+    lowestPrice: number;
     mountTypeFilter: string;
     noOfShelves: number;
     recommendedPriceFilter: string;
@@ -21,11 +21,11 @@ interface FurnitureUIData {
     phoneNumber: string;
 }
 
-interface APIData{
+interface APIData {
     expectedStrings: any;
 }
 
-const furnitureData: FurnitureUIData= uiData[0];
+const furnitureData: FurnitureUIData = uiData[0];
 const expectedStrings = apiData[0].expectedStrings;
 
 test('Apply the filters and verify the same in the body', async ({ page }) => {
@@ -33,7 +33,6 @@ test('Apply the filters and verify the same in the body', async ({ page }) => {
     const pomManager = new POManager(page);
     const bookShelves = await pomManager.getBookShelvesPage();
     const productDetails = await pomManager.getProductDetailsPage();
-    const address = await pomManager.getAddressPage();
     const home = await pomManager.getHomePage();
 
     await home.navigateToHomePage();
@@ -50,18 +49,19 @@ test('Apply the filters and verify the same in the body', async ({ page }) => {
             'filters[num_shelves][]': furnitureData.noOfShelves,
             'filters[availability][]': furnitureData.availabilityFilter,
             'sort': 'price_asc'
-
         },
         headers: {
             'user-Agent': 'Playwright-Test-Agent',
             'accept': 'text/html'
         }
-
     });
     expect(response.ok()).toBeTruthy();
     const body = await response.text();
     for (const expected of expectedStrings) {
         expect(JSON.stringify(body)).toContain(expected.toString());
     }
-
+    expect(JSON.stringify(body)).toContain(furnitureData.productName);
+    await bookShelves.viewProduct(furnitureData.productName);
+    await productDetails.checkTheProduct(furnitureData.productName);
 });
+
