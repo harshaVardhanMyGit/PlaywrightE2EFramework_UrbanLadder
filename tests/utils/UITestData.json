@@ -1,0 +1,19 @@
+[
+    {
+        "furnitureType": "Bookshelves",
+        "lowestPrice": 585,
+        "targetPrice": 15000,
+        "storageTypeFilter": "Open",
+        "mountTypeFilter": "Free Standing",
+        "noOfShelves": 6,
+        "availabilityFilter": "In Stock Only",
+        "recommendedPriceFilter": "Low to High",
+        "productName": "Albert Engineered Wood Bookshelf in Wenge Finish",
+        "email": "myProject@gmail.com",
+        "pincode": "560001",
+        "address": "Thoraipakkam, Tamil Nadu, India",
+        "firstName": "John",
+        "lastName": "Doe",
+        "phoneNumber": "1234567890"
+    }
+]
