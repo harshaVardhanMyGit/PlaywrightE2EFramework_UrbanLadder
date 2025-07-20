@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import dataset from './utils/furnitureData.json';
+import dataset from './utils/UITestData.json';
 import { POManager } from '../PageObjectModel/POManager';
 
 interface FurnitureData {
