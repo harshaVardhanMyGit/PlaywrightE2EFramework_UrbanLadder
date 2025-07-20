@@ -5,6 +5,7 @@
   "description": "Playwright E2E framework for Urban Ladder",
   "scripts": {
     "test": "npx playwright test",
+    "apiTests": "npx playwright test tests/APITestCases.spec.ts",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
     "allure:generate": "allure generate ./allure-results --clean",
@@ -21,6 +22,7 @@
     "@types/node": "^24.0.10",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.0",
+    "cheerio": "^1.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
