@@ -11,6 +11,9 @@ export class productDetailsPage {
     }
 
     async checkTheProduct(productName: string) {
+        await this.page.getByText(productName).first().waitFor({
+            state: 'visible',
+            timeout: 10000});
         await expect(this.page.getByText(productName).first()).toHaveText(productName);
         await this.page.getByRole('button', { name: 'Add to Cart ' }).first().waitFor({
             state: 'visible',
