@@ -92,6 +92,16 @@ Welcome to the Urban Ladder Playwright Automation Project! This repository is de
    npx playwright test --config=playwright.service.config.ts --workers=20
    ```
 
+## Jenkins Run
+
+Below is the screenshot for Playwright test execution in **Jenkins**, showing the build logs and results directly from the Jenkins console output.
+
+<img width="1310" height="620" alt="image" src="https://github.com/user-attachments/assets/acf06bea-7087-4351-9243-f5e5212d88d1" />
+<img width="1312" height="582" alt="image" src="https://github.com/user-attachments/assets/a76ae110-13c5-46bb-9257-88e261046759" />
+
+
+
+
 ## License
 
 MIT License. Free to use, modify, and share.
