@@ -11,6 +11,26 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
+      "ci": {
+        "commitHref": "http://localhost:8080/job/playwrightGithub/2/"
+      },
+      "gitCommit": {
+        "shortHash": "be249e6",
+        "hash": "be249e69ce9c54eace67e3c58277d34ed0fd8d49",
+        "subject": "Create LICENSE",
+        "body": "Create LICENSE\n\nMIT License added",
+        "author": {
+          "name": "Harsha Vardhan",
+          "email": "mylapilliharshavardhan2001@gmail.com",
+          "time": 1753015034000
+        },
+        "committer": {
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "time": 1753015034000
+        },
+        "branch": "main"
+      },
       "actualWorkers": 1
     },
     "preserveOutput": "always",
@@ -47,6 +67,26 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
+          "ci": {
+            "commitHref": "http://localhost:8080/job/playwrightGithub/2/"
+          },
+          "gitCommit": {
+            "shortHash": "be249e6",
+            "hash": "be249e69ce9c54eace67e3c58277d34ed0fd8d49",
+            "subject": "Create LICENSE",
+            "body": "Create LICENSE\n\nMIT License added",
+            "author": {
+              "name": "Harsha Vardhan",
+              "email": "mylapilliharshavardhan2001@gmail.com",
+              "time": 1753015034000
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1753015034000
+            },
+            "branch": "main"
+          },
           "actualWorkers": 1
         },
         "id": "",
@@ -68,14 +108,14 @@
   },
   "suites": [
     {
-      "title": "mainFolder.spec.ts",
-      "file": "mainFolder.spec.ts",
+      "title": "APITestCases.spec.ts",
+      "file": "APITestCases.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Automating Urban Ladder Website",
-          "ok": false,
+          "title": "Apply the filters and verify the same in the body",
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -88,74 +128,48 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "timedOut",
-                  "duration": 43153,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 40000ms exceeded.\u001b[39m",
-                    "stack": "\u001b[31mTest timeout of 40000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 40000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts",
-                        "column": 32,
-                        "line": 64
-                      },
-                      "message": "Error: locator.check: Test timeout of 40000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('label:has-text(\"Free Standing \")')\u001b[22m\n\u001b[2m    - locator resolved to <label class=\"name \" for=\"filters_mount_type_Free_Standing\">Free Standing↵</label>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    52 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\PageObjectModel\\bookShelvesCategories.ts:64\n\n\u001b[0m \u001b[90m 62 |\u001b[39m         \u001b[36mconst\u001b[39m labelInMountType\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m`label:has-text(\"${mountTypeFilter} \")`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 63 |\u001b[39m         \u001b[36mconst\u001b[39m labelInMountTypeText\u001b[33m:\u001b[39m any \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m labelInMountType\u001b[33m.\u001b[39mtextContent()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 64 |\u001b[39m         \u001b[36mawait\u001b[39m labelInMountType\u001b[33m.\u001b[39mcheck()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 65 |\u001b[39m         expect(\u001b[36mawait\u001b[39m labelInMountType\u001b[33m.\u001b[39misChecked())\u001b[33m.\u001b[39mtoBeTruthy()\u001b[33m;\u001b[39m\n \u001b[90m 66 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mselectedFilters\u001b[33m.\u001b[39mnth(\u001b[35m2\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(labelInMountTypeText)\u001b[33m;\u001b[39m\n \u001b[90m 67 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m'Selected Inmount Type:'\u001b[39m\u001b[33m,\u001b[39m labelInMountTypeText)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at bookShelvesCategories.assignFiltersToTheFurniture (C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\PageObjectModel\\bookShelvesCategories.ts:64:32)\u001b[22m\n\u001b[2m    at C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\tests\\mainFolder.spec.ts:35:5\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 28920,
+                  "errors": [],
                   "stdout": [
                     {
-                      "text": "Updated Price Range: ₹585 - ₹15,050\n"
+                      "text": "List of Products: [\n  \u001b[32m'Hubert 6 Door Kitchen Display Cabinet '\u001b[39m,\n  \u001b[32m'Babylon Solid Wood Bookshelf in Walnut Finish'\u001b[39m,\n  \u001b[32m'Rhodes Solid Wood Bookshelf in Teak Finish'\u001b[39m,\n  \u001b[32m'Murano Solid Wood Bookshelf/Display Unit '\u001b[39m,\n  \u001b[32m'Rhodes Solid Wood Bookshelf in Mahogany Finish'\u001b[39m,\n  \u001b[32m'Hubert Low Kitchen Display Cabinet '\u001b[39m,\n  \u001b[32m'Megan Engineered Wood Bookshelf in Classic Walnut Finish'\u001b[39m,\n  \u001b[32m'Oswald Engineered Wood Bookshelf in Classic Walnut Finish'\u001b[39m,\n  \u001b[32m'Paige Engineered Wood Bookshelf in Frosty White Finish'\u001b[39m,\n  \u001b[32m'Elliot Engineered Wood Bookshelf in Classic Walnut Finish'\u001b[39m,\n  \u001b[32m'Enid Solid Wood Bookshelf in Mango Mahogany Finish'\u001b[39m,\n  \u001b[32m'Malabar Solid Wood Bookshelf in Mango Mahogany Finish'\u001b[39m,\n  \u001b[32m'Enid Solid Wood Bookshelf in Amber Walnut Finish'\u001b[39m,\n  \u001b[32m'Mateo Solid Wood Bookshelf in Teak Finish'\u001b[39m,\n  \u001b[32m'Hayden Engineered Wood Bookshelf in Classic Walnut Finish'\u001b[39m,\n  \u001b[32m'Murano Solid Wood Bookshelf/Display Unit '\u001b[39m,\n  \u001b[32m'Tetris Solid Wood Bookshelf in Walnut Finish'\u001b[39m,\n  \u001b[32m'Mateo Solid Wood Bookshelf in Mahogany Finish'\u001b[39m,\n  \u001b[32m'Megan Engineered Wood Bookshelf in Classic Walnut Finish'\u001b[39m,\n  \u001b[32m'Gaku Solid Wood Bookshelf in Charcoal Black Finish'\u001b[39m,\n  \u001b[32m'Keoni Solid Wood Bookshelf in Claret Mahogany Finish'\u001b[39m,\n  \u001b[32m'Darcia Engineered Wood Bookshelf in Rustic Walnut Finish'\u001b[39m,\n  \u001b[32m'Rustic Engineered Wood Bookshelf in Asian Walnut Finish'\u001b[39m,\n  \u001b[32m'Felix Engineered Wood Bookshelf in Frosty White Finish'\u001b[39m,\n  \u001b[32m'Song Engineered Wood Bookshelf in Columbian Walnut Finish'\u001b[39m,\n  \u001b[32m'Jarrah Solid Wood Bookshelf in Natural & Stone Veneer Finish'\u001b[39m,\n  \u001b[32m'Alex Engineered Wood Bookshelf in Brown Maple Finish'\u001b[39m,\n  \u001b[32m'Crosbon Engineered Wood Bookshelf in Brown Maple Finish'\u001b[39m,\n  \u001b[32m'Alex Engineered Wood Bookshelf in Wenge Finish'\u001b[39m,\n  \u001b[32m'Montana Engineered Wood Bookshelf in Matte Laminate Finish'\u001b[39m\n]\n"
                     },
                     {
-                      "text": "Selected Storage Type: Open\n\n"
+                      "text": "Found matching product at index 84: Albert Engineered Wood Bookshelf in Wenge Finish\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-07-07T05:28:16.012Z",
+                  "startTime": "2025-08-15T03:01:13.202Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\test-results\\mainFolder-Automating-Urban-Ladder-Website\\test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\test-results\\mainFolder-Automating-Urban-Ladder-Website\\video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\test-results\\mainFolder-Automating-Urban-Ladder-Website\\error-context.md"
+                      "path": "C:\\Users\\Father\\Documents\\PlaywrightE2EFramework_UrbanLadder\\test-results\\APITestCases-Apply-the-fil-d66ce-verify-the-same-in-the-body\\test-finished-1.png"
                     }
                   ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
-          "id": "1fb5e57df45c7a4466cd-9d558d34f4dc8137197c",
-          "file": "mainFolder.spec.ts",
-          "line": 24,
-          "column": 7
+          "id": "2da1b61cc617704eca0c-802279a5148405041ad1",
+          "file": "APITestCases.spec.ts",
+          "line": 31,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-07-07T05:28:13.802Z",
-    "duration": 47560.829000000005,
-    "expected": 0,
+    "startTime": "2025-08-15T03:01:10.264Z",
+    "duration": 35451.341,
+    "expected": 1,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }
