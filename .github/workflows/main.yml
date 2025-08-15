@@ -3,24 +3,28 @@ on:
     branches:
       - main
 
-
 jobs:
   tests_e2e:
     name: Run tests
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-      - uses: microsoft/playwright-github-action@v1
+      - name: Install Playwright dependencies
+        uses: microsoft/playwright-github-action@v1
 
-      - name: Install dependencies
+      - name: Install project dependencies
         run: npm install
 
-      - name: Install playwright browsers
-        run: npx playwright install
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
-      - name: Run tests
+      - name: Run Playwright API tests
         run: npm run apiTests
